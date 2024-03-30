@@ -1,0 +1,27 @@
+imagesDir: 'dataset/images' # 图片地址
+labelsDir: 'dataset/labels' # json标记文件地址
+dataPreDeal:
+  outputXml: 'dataset/xmlData'  # 输出的xmlData地址
+  outputTxt: 'dataset/txtData'  # 输出yolo格式文件地址
+  trainRadio: 0.8  # 训练集分割比例， test分割比例为：(1- trainRadio)
+  splitTxtPath: 'yolov7/dataset/lzjc' # 分割文件val.txt, train.txt地址, dataset下也会保存一份
+detector:
+  name: 'CREW5'
+  output: 'dataset/detector'
+  source: 'dataset/images'
+  saveTxt: True
+  device: '0' # 这里只能填’cpu\0\1\2..‘
+  val: False
+  weight: 'F:/TEDM/dataset/LZJC Dataset/weight/yolov7/best.pt'
+  valTxtPath: 'F:/TEDM/dataset/LZJC Dataset/val.txt'
+measurer:
+  name: 'CREW5'
+  output: 'dataset/measurer' # 测量结构保存地址
+  imageDir: 'dataset/images' # 测量的图片地址
+  rectDir: 'dataset/detector/CREW5/labels' # 一阶段detector生成的txt结果地址
+  saveTxt: True  # 是否将结果保存
+  device: 'cuda'
+  val: False # 是否对测试集进行测量，用于查看模型在测试集上的效果
+  weight: 'F:/TEDM/dataset/LZJC Dataset/weight/measurer/MobileNetV3/best.pth' # 权重文件
+  valTxtPath: 'F:/TEDM/dataset/LZJC Datase/val.txt' # 测试集val.txt文件地址
+  config: "F:/TEDM/dataset/LZJC Dataset/weight/measurer/MobileNetV3/opt.yml"

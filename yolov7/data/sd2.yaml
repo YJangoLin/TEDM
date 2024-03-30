@@ -1,0 +1,9 @@
+train: F:/TEDM/dataset/Satellite Dataset#2/train.txt  # 144 images
+val: F:/TEDM/dataset/Satellite Dataset#2/val.txt  # 36 images
+#test: ./dataset/voc/test.txt  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+
+# number of classes
+nc: 1
+
+# class names
+names: ['ellipse']
